@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
+import {
+  Alert,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
 interface TodoInputProps {
@@ -12,6 +18,13 @@ export function TodoInput({ addTask }: TodoInputProps) {
   function handleAddNewTask() {
     // TODO - Call addTask if task not empty and clean input value
     if (task.trim() === '') {
+      Alert.alert('Tarefa em branco', 'Insira uma tarefa válida', [
+        {
+          text: 'Cancelar',
+          style: 'destructive',
+        },
+        { text: 'OK' },
+      ])
       return
     }
 
@@ -30,7 +43,6 @@ export function TodoInput({ addTask }: TodoInputProps) {
         onSubmitEditing={handleAddNewTask}
         onChangeText={setTask}
         value={task}
-        // TODO - use value, onChangeText and onSubmitEditing props
       />
 
       <TouchableOpacity
@@ -38,7 +50,6 @@ export function TodoInput({ addTask }: TodoInputProps) {
         activeOpacity={0.7}
         style={styles.addButton}
         onPress={handleAddNewTask}
-        // TODO - onPress prop
       >
         <Icon name="chevron-right" size={24} color="#B2B2B2" />
       </TouchableOpacity>
