@@ -18,6 +18,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@rocketseat/eslint-config": "^1.2.0",
     "@testing-library/jest-native": "^4.0.1",
     "@testing-library/react-native": "^7.2.0",
     "@types/jest": "^26.0.23",
